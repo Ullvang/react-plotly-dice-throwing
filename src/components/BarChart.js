@@ -1,12 +1,12 @@
 import React from "react";
 import Plot from "react-plotly.js";
 
-export default function PlotComponent(props) {
+export default function BarChart(props) {
   const { dice, numberOfDice } = props;
   const combinedValueOfThrow = [];
   let combinedValueOfThrowCount = {};
 
-  for (var i = numberOfDice; i <= numberOfDice * 6; i++) {
+  for (let i = numberOfDice; i <= numberOfDice * 6; i++) {
     combinedValueOfThrow.push(i);
     combinedValueOfThrowCount[i] = 0;
   }
@@ -18,7 +18,7 @@ export default function PlotComponent(props) {
 
   const innerWidth = window.innerWidth;
 
-  var result = {
+  const result = {
     type: "bar",
     hoverinfo: "none",
     text: count.map(String),
@@ -29,6 +29,7 @@ export default function PlotComponent(props) {
     result.orientation = "h";
     result.x = count;
     result.y = combinedValueOfThrow;
+    result.textposition = "auto";
   } else {
     result.x = combinedValueOfThrow;
     result.y = count;
